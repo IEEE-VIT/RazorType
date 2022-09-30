@@ -1,0 +1,56 @@
+.body
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: bisque;
+}
+
+.upperBody
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 5vh;
+}
+
+.description
+{
+    width: 80%;
+    margin: 2%;
+    padding-top: 12%;
+    padding-left: 5%;
+    display: flex;
+    flex-direction: column;
+}
+.image
+{
+    width: 50vw;
+    height: 35vw;
+    margin: 5%;
+    margin-right: 10%;  
+}
+
+.start
+{
+    align-self: center;
+    background-color: #ffe4c4;
+    width: 10vw;
+    padding-top: 0.5vw;
+    padding-bottom: 0.5vw;
+    text-align: center;
+    color: black;
+    margin-top: 15%;
+    margin-right: 80%;
+    transition-duration: 0.5s;
+    font-size: smaller;
+}
+
+
+.start:hover
+{
+    cursor: pointer;
+    background-color: #493030;
+    color: bisque;
+    border: 2px solid bisque;
+}
