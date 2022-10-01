@@ -1,0 +1,56 @@
+.navbar
+{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /* background-color: black; */
+    background-image: linear-gradient(black,rgba(0, 0, 0, 0) );
+    height: 8vh;
+    color: bisque;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-top: 2.5%;
+    font-size: 2.5vh;
+}
+
+.navHeading
+{
+    margin-left: 5%;
+    font-size: 5vh;
+}
+.menuLine
+{
+    height: 2px;
+    background-color: bisque;
+    width: 30px;
+    margin-bottom: 5px;
+}
+
+.menuTrigger
+{
+    /* border: 2px solid salmon; */
+    width: 5vw;
+    height: 5vh;
+}
+
+.menuTrigger:hover
+{
+    cursor: pointer;
+}
+
+.navHeading:hover
+{
+    cursor: pointer;
+}
+
+.ieee
+{
+    /* width: 50vw;
+    height: 5vh; */
+    /* width: 10%; */
+    height: 200%;
+    margin-right: 2px;
+    margin-top: -10px;
+    transform: scale(0.8,0.8);
+    /* border: 2px solid brown; */
+}

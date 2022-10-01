@@ -1,0 +1,65 @@
+
+
+.textHolder
+{
+    position: relative;
+    
+    
+}
+
+.fetchText
+{
+    border: 2px solid bisque;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 80vw;
+    height: 50vh;
+    margin: 5%;
+    align-self: center;
+    background-color: transparent;
+    outline: 0;
+    padding-top: 0;
+    padding-left: 0;
+    color: bisque;
+    font-size: 4vh;
+    opacity: 0.7;
+}
+
+.fetchTextOverlay
+{
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 80vw;
+    height: 50vh;
+    margin: 5%;
+    background-color: transparent;
+    outline: 0;
+    font-size: 4vh;
+    color: bisque;
+    padding-top: 0;
+    padding-left: 0;
+    align-self: center;
+}
+
+.reload
+{
+    position: absolute;
+    background-color: bisque;
+    width: 10vw;
+    height: 5vh;
+    text-align: center;
+    padding-top: 1%;
+    transition-duration: 0.5s;
+    top: 75vh;
+    left: 45vw;
+}
+.reload:hover
+{
+    cursor: pointer;
+    border: 2px solid bisque;
+    background-color: #493030;
+    color: bisque;
+
+}
