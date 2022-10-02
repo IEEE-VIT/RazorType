@@ -1,16 +1,39 @@
-razerType is a HacktoberFest React app of a type speed illustrator.
-the purpose of the app revolves around successfully calculating and displaying the typing speed and the accuracy of the user.
 
-The typing test begins as soon as the user clicks on "Start" in the home page. 
+# Hacktoberfest 2022 with IEEE-VIT!
 
-Clicking on "Start" would route the user to the typing area which is composed of 2 text-areas, one overlapped over the other.
+RazorType is a HacktoberFest React app of a type speed illustrator.
 
-The one in the backdrop shall contain a "read-only placeholder" which is supposed to contain the text to be typed.
+The purpose of the app revolves around successfully calculating and displaying the typing speed and the accuracy of the user.
 
-This placeholder would be fetched by a custom function which would generate a paragraph from a .json file filled with words.
+Help your peers around the world to celebrate the fest of open-source! <3
 
-The user is expected to type the words in the text-area that overlaps the prior element.
+Leave a ⭐ if you like our works!
+## Getting Started
+* Fork the repository to your GitHub account
+* Clone youre forked repository to your local machine and move inside it.
+```git clone https://github.com/IEEE-VIT/RazorType.git && cd RazorType```
+* Create a new branch to work on an issue.
+```git checkout -b new-feature```
+* **Setup:**
+    * To setup the project, run this command:
+    ```$ yarn install```
+    or
+    `$ npm install`.
 
-Whenever user enters a wrong character, it shall turn it's color to red else, the color shall remain the same with a higher opacity.
+    This shall create a ```node-modules``` folder
+    * All the components are setup inside ```RazorType/src/components```. Almost every code shall go in there.
+    * To start the project, run ```$ npm start``` or ```$ yarn start``` 
+* Once you are done with the code, you shall push the project from your local machine to your created branch and then make a pull request.
+```git add.```
 
-The moment the user types the entire paragraph, the site shall be automatically routed to the results page that displays the overall typing speed along with the accuracy of the user.
+```git commit -m "A short description about the feature."```
+
+```push origin <new-feature>```
+
+Raise a PR to the master branch after opening your forked repository.
+
+## Contributing
+To start contributing, check out [CONTRIBUTING.md](). New contributors are always welcome to support this project. If you want something gentle to start with, check out issues labelled as `easy` or `good-first-issue`. Check out issues labelled as `hacktoberfest` if you are up for some grabs! :)
+
+## License
+This project is licensed under [MIT]()
