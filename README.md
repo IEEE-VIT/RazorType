@@ -1,5 +1,6 @@
 
 # Hacktoberfest 2022 with IEEE-VIT!
+<img src="./banner.png"/>
 
 RazorType is a HacktoberFest React app of a type speed illustrator.
 
