@@ -5,7 +5,7 @@ RazorType is a HacktoberFest React app of a type speed illustrator.
 
 The purpose of the app revolves around successfully calculating and displaying the typing speed and the accuracy of the user.
 
-Celebrate open-source by contributing to win goodies! <3
+Help your peers around the world to celebrate the fest of open-source! <3
 
 Leave a ⭐ if you like our works!
 ## Getting Started
