@@ -18,6 +18,33 @@
     margin-left: 5%;
     font-size: 5vh;
 }
+
+@media (max-width: 940px){
+}
+
+@media only screen and (max-width: 600px){
+    div.navHeading{
+        font-size: large;  
+    }
+
+    img.ieee{
+        max-width: 100px;
+        max-height: 35px;
+    }
+}
+
+@media only screen and (max-width: 300px){
+    img.ieee{
+        max-width: 0;
+        max-height: 0;
+    }
+    
+    /* img.logo{
+        max-width: 0;
+        max-height: 0;
+    } */
+}
+
 .menuLine
 {
     height: 2px;
@@ -48,7 +75,7 @@
     /* width: 50vw;
     height: 5vh; */
     /* width: 10%; */
-    height: 200%;
+    height: 125%;
     margin-right: 2px;
     margin-top: -10px;
     transform: scale(0.8,0.8);
