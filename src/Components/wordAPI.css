@@ -1,5 +1,3 @@
-
-
 .textHolder
 {
     position: relative;
@@ -55,6 +53,22 @@
     top: 75vh;
     left: 45vw;
 }
+
+@media only screen and (max-width: 600px){
+    div.reload{
+        font-size: small;
+    }
+    div.fetchText::placeholder{
+        font-size: small;
+    }
+}
+
+@media only screen and (max:width: 300px){
+    div.fetchText{
+        font-size: smaller;
+    }
+}
+
 .reload:hover
 {
     cursor: pointer;

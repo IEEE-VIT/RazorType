@@ -40,10 +40,32 @@
     padding-bottom: 0.5vw;
     text-align: center;
     color: black;
+    padding: 5px;
     margin-top: 15%;
     margin-right: 80%;
     transition-duration: 0.5s;
     font-size: smaller;
+}
+
+@media only screen and (max-width: 940px) {
+    div.start{
+        font-size: 20px;
+        padding: 2px;
+    }
+
+    div.description{
+        font-size: 30px;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    div.start{
+        font-size: 10px;
+    }
+
+    div.description{
+        font-size: medium;
+    }
 }
 
 
