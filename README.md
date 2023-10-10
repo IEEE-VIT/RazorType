@@ -1,6 +1,6 @@
 
-# Hacktoberfest 2022 with IEEE-VIT!
-<img src="./banner.png"/>
+# Hacktoberfest 2023 with IEEE-VIT!
+<img src="https://files.ieeevit.org/Hacktoberfest-23/Razorype.png" alt="README Banner">
 
 RazorType is a HacktoberFest React app of a type speed illustrator.
 
@@ -31,10 +31,10 @@ Leave a ⭐ if you like our works!
 
 ```push origin <new-feature>```
 
-Raise a PR to the master branch after opening your forked repository.
+Raise a PR to the main branch after opening your forked repository.
 
 ## Contributing
-To start contributing, check out [CONTRIBUTING.md](https://github.com/IEEE-VIT/RazorType/blob/master/CONTRIBUTING.md). New contributors are always welcome to support this project. If you want something gentle to start with, check out issues labelled as `easy` or `good-first-issue`. Check out issues labelled as `hacktoberfest` if you are up for some grabs! :)
+To start contributing, check out [CONTRIBUTING.md](https://github.com/IEEE-VIT/RazorType/blob/main/CONTRIBUTING.md). New contributors are always welcome to support this project. If you want something gentle to start with, check out issues labelled as `easy` or `good-first-issue`. Check out issues labelled as `hacktoberfest` if you are up for some grabs! :)
 
 ## License
 This project is licensed under [MIT](https://github.com/IEEE-VIT/RazorType/blob/main/LICENSE)
