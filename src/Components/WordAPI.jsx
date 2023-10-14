@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useRef } from "react";
 import "./wordAPI.css";
@@ -19,6 +20,13 @@ export default function WordAPI() {
       (totalAccurateWords / PARAGRAPH_LENGTH) * 100
     );
     console.log(userAccuracy);
+    return userAccuracy;
+  };
+
+  const navigate = useNavigate();
+  const buttonHandler = () => {
+    const userAccuracy = handleAccuracy();
+    navigate("/results", { state: { userAccuracy } });
   };
 
   return (
@@ -31,7 +39,7 @@ export default function WordAPI() {
         <div className="textHolder">
           <textarea className="fetchText" placeholder={paragraph} readOnly />
           <textarea className="fetchTextOverlay" ref={inputRef}></textarea>
-          <button onClick={handleAccuracy} className="accuracy">
+          <button onClick={buttonHandler} className="accuracy">
             ACCURACY
           </button>
           <div className="reload">RELOAD</div>
