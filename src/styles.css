@@ -1,0 +1,52 @@
+/* styles.css */
+
+/* Style the main container */
+div {
+    text-align: center;
+    margin: 20px;
+  }
+  
+  /* Style the heading */
+  h1 {
+    color: #333;
+  }
+  
+  /* Style the input text area */
+  textarea {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Style the output text area */
+  .output-text {
+    margin-top: 10px;
+    font-size: 18px;
+    border: 1px solid #666;
+    padding: 10px;
+    background-color: #f5f5f5;
+  }
+  
+  /* Style the output text paragraph */
+  p {
+    font-weight: bold;
+    font-size: 20px;
+    color: #008000;
+  }
+  
+  /* Style the special characters */
+  .special-characters {
+    color: #ff6600; /* Special character color */
+    font-weight: bold;
+  }
+  
+  /* Style the button (if you have one) */
+  button {
+    padding: 10px 20px;
+    background-color: #008000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+  
