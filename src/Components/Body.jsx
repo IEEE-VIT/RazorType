@@ -17,7 +17,7 @@ export default function Body() {
         <motion.div animate={{y:[-100,0], opacity:[0,1]}} transition={{duration:1}} className="body">
             <div className="upperBody">
                 <motion.div animate={{x:[-100,0], opacity:[0,1]}} transition={{duration:1}} className="description">
-                    razerType is a<br/>HacktoberFest React app of a<br/>Fun Type Speed Illustrator!
+                    razerType is a<br/> Beginner Level React app of a<br/>Fun Type Speed Illustrator!
                     <div onClick={buttonHandler} className="start">
                        START
                     </div>

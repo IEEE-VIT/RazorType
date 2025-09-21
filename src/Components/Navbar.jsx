@@ -1,17 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import "./navbar.css"
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 export default function Navbar() {
 
     const navigate = useNavigate();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     
     const menuAnimation=()=>
     {
-        document.getElementsByClassName("line1").style.transform="rotate(45deg)";
-        document.getElementsByClassName("line3").style.transform="rotate(-45deg)";
-        document.getElementsByClassName("line2").style.opacity="0";
+        setIsMenuOpen(!isMenuOpen);
     }
 
     const buttonHandler=()=>
@@ -19,17 +18,24 @@ export default function Navbar() {
         navigate("/")
     }
 
+    const ieeeHandler = () => {
+        window.open("https://www.ieeevit.org/", "_blank");
+      };
+      
+
   return (
     <>
         <motion.div animate={{y:[-100,0],opacity:[0,1]}} transition={{duration:1}} className="navbar">
             <div onClick={menuAnimation} className='menuTrigger'>
-                <img src="Assets/razerTypeLogo.svg" alt="" className="logo" />
+              <img src="Assets/razerTypeLogo.svg" alt="" className="logo" />                
+
+                
             </div>
             <div onClick={buttonHandler} className="navHeading">   
                 razerType
             </div>  
             <div className="ieeeLogo">
-                <img src="Assets/ieee logo 3.png" alt="" className="ieee" />
+                <img src="Assets/ieee logo 3.png" alt="" className="ieee" onClick={ieeeHandler} />
             </div>
         </motion.div>
     </>

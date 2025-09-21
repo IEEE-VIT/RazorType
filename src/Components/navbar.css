@@ -58,6 +58,30 @@
     /* border: 2px solid salmon; */
     width: 5vw;
     height: 5vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.line1, .line2, .line3 {
+    height: 2px;
+    background-color: bisque;
+    width: 30px;
+    margin-bottom: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.line1-open {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.line2-open {
+    opacity: 0;
+}
+
+.line3-open {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 .menuTrigger:hover
@@ -80,4 +104,10 @@
     margin-top: -10px;
     transform: scale(0.8,0.8);
     /* border: 2px solid brown; */
+     float: left;
+  max-width: 150px;   /* adjust as needed */
+  height: auto;
+  margin-right: 1rem; /* space between image and text */
+  display: block;
+  
 }

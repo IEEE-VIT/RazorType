@@ -4,29 +4,30 @@
  *
  * @param { string } inputText holds the user typed text
  * @param { string } expectedText holds the expected text
+ * @param { number } time holds the time taken to type the text in seconds
  *
- * @property { number } totalWordsTyped refers to total words that a user typed
- * @property { number } totalAccurateWords: refers to the total accurate works that a user typed
- * @property { number } totalInaccurateWords: refers to the total inaccurate works that a user typed
- * @property { list } listOfIncorrectWords: refers to the list of keyValue pair of wrongly typed words
- * while `Key` being the `expected word` and `Value` being the `wrongly typed`.
+ * @property { number } wpm refers to words per minute
+ * @property { number } accuracy refers to the accuracy of the user
+ * @property { number } time refers to the time taken to type the text in seconds
+ * @property { number } errors refers to the total inaccurate works that a user typed
+ * @property { number } characters refers to total characters that a user typed
  *
- * @example 
+ * @example
  * `{
-    "totalWordsTyped": 3,
-    "totalAccurateWords": 1,
-    "totalInaccurateWords": 2,
-    "listOfIncorrectWords": {
-        "needed": "ne",
-        "motion": "motin"
-    }`
+ *  "wpm": 50,
+ *  "accuracy": 90,
+ *  "time": 60,
+ *  "errors": 5,
+ *  "characters": 250
+ * }`
  */
-export const getStatistics = (inputText, expectedText) => {
+export const getStatistics = (inputText, expectedText, time) => {
   let statistics = {
-    totalWordsTyped: 0,
-    totalAccurateWords: 0,
-    totalInaccurateWords: 0,
-    listOfIncorrectWords: [],
+    wpm: 0,
+    accuracy: 0,
+    time: time,
+    errors: 0,
+    characters: inputText.length,
   };
 
   if (inputText.length === 0) {
@@ -36,27 +37,19 @@ export const getStatistics = (inputText, expectedText) => {
   const inputTextArray = inputText.split(" ");
   const expectedTextArray = expectedText.split(" ");
 
-  statistics.totalWordsTyped = inputTextArray.length;
-
+  let accurateWords = 0;
   for (let i = 0; i < inputTextArray.length; i++) {
     if (inputTextArray[i] === expectedTextArray[i]) {
-      statistics = {
-        ...statistics,
-        totalAccurateWords: (statistics.totalAccurateWords += 1),
-      };
-    } else {
-      let wronglyTyped = {};
-      wronglyTyped[expectedTextArray[i]] = inputTextArray[i];
-      statistics = {
-        ...statistics,
-        totalInaccurateWords: (statistics.totalInaccurateWords += 1),
-        listOfIncorrectWords: {
-          ...statistics.listOfIncorrectWords,
-          ...wronglyTyped,
-        },
-      };
+      accurateWords++;
     }
   }
-  console.log(statistics);
+
+  const grossWPM = (inputText.length / 5) / (time / 60);
+  const netWPM = grossWPM - (inputTextArray.length - accurateWords) / (time / 60);
+
+  statistics.wpm = Math.max(0, Math.floor(netWPM));
+  statistics.accuracy = Math.floor((accurateWords / inputTextArray.length) * 100);
+  statistics.errors = inputTextArray.length - accurateWords;
+
   return statistics;
 };
