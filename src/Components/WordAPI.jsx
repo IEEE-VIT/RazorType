@@ -12,32 +12,51 @@ export default function WordAPI() {
   const [paragraph, setParagraph] = useState(initialParagraph);
   const [time, setTime] = useState(0);
   const [timerOn, setTimerOn] = useState(false);
+  const [countdown, setCountdown] = useState(3);
+  const [showCountdown, setShowCountdown] = useState(true);
   const inputRef = useRef(null);
   const [liveStats, setLiveStats] = useState({ wpm: 0, accuracy: 100, errors: 0 });
   const navigate = useNavigate();
 
+  // Countdown effect
+  useEffect(() => {
+    if (showCountdown) {
+      if (countdown > 0) {
+        const timer = setTimeout(() => setCountdown(countdown - 1), 1000);
+        return () => clearTimeout(timer);
+      } else {
+        setShowCountdown(false);
+        setTimerOn(true);
+        setTimeout(() => {
+          if (inputRef.current) inputRef.current.focus();
+        }, 100);
+      }
+    }
+  }, [countdown, showCountdown]);
+
+  // Timer effect
   useEffect(() => {
     let interval = null;
-
-    if (timerOn) {
+    if (timerOn && !showCountdown) {
       interval = setInterval(() => {
         setTime((prevTime) => prevTime + 1);
       }, 1000);
     } else {
       clearInterval(interval);
     }
-
     return () => clearInterval(interval);
-  }, [timerOn]);
+  }, [timerOn, showCountdown]);
 
   const handleStart = () => {
-    setTimerOn(true);
+    // No longer needed, timer starts after countdown
   };
 
   const handleReload = () => {
     setParagraph(getRandomParagraph());
     setTime(0);
     setTimerOn(false);
+    setCountdown(3);
+    setShowCountdown(true);
     inputRef.current.value = "";
   };
 
@@ -93,6 +112,20 @@ export default function WordAPI() {
         className="word"
       >
         <div className="textHolder">
+          {showCountdown && (
+            <div className="countdown-outer">
+              <motion.div
+                key={countdown}
+                className="countdown"
+                initial={{ scale: 0.5, opacity: 0 }}
+                animate={{ scale: 1.2, opacity: 1 }}
+                exit={{ scale: 0.5, opacity: 0 }}
+                transition={{ duration: 0.5 }}
+              >
+                {countdown === 0 ? "Go!" : countdown}
+              </motion.div>
+            </div>
+          )}
           <div className="highlightedParagraph">
             {getHighlightedParagraph()}
           </div>
@@ -100,12 +133,12 @@ export default function WordAPI() {
             className="fetchTextOverlay"
             ref={inputRef}
             onInput={handleInput}
-            onFocus={handleStart}
+            disabled={showCountdown}
           ></textarea>
           <div className="liveStats">
             <span>Speed: {liveStats.wpm} WPM</span> | <span>Accuracy: {liveStats.accuracy}%</span> | <span>Errors: {liveStats.errors}</span>
           </div>
-          <button onClick={buttonHandler} className="accuracy">
+          <button onClick={buttonHandler} className="accuracy" disabled={showCountdown}>
             SUBMIT
           </button>
           <div onClick={handleReload} className="reload">
