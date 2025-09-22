@@ -49,6 +49,18 @@ export default function WordAPI() {
     navigate("/results", { state: { stats } });
   };
 
+  // Handler to check if user finished typing the paragraph
+  const handleInput = () => {
+    const inputText = inputRef.current.value;
+    // Remove trailing spaces for comparison
+    if (inputText.trimEnd() === paragraph.trimEnd()) {
+      setTimerOn(false);
+      const stats = getStatistics(inputText, paragraph, time);
+      stats.paragraph = paragraph;
+      navigate("/results", { state: { stats } });
+    }
+  };
+
   return (
     <>
       <motion.div
@@ -63,7 +75,11 @@ export default function WordAPI() {
             readOnly
             onFocus={handleStart}
           />
-          <textarea className="fetchTextOverlay" ref={inputRef}></textarea>
+          <textarea
+            className="fetchTextOverlay"
+            ref={inputRef}
+            onInput={handleInput}
+          ></textarea>
           <button onClick={buttonHandler} className="accuracy">
             SUBMIT
           </button>
