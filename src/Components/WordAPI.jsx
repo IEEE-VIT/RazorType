@@ -4,9 +4,12 @@ import { motion } from "framer-motion";
 import "./wordAPI.css";
 import { getStatistics } from "../Utils/getStatistics";
 import { getRandomParagraph } from "../Utils/getRandomParagraph";
+import { useLocation } from "react-router-dom";
 
 export default function WordAPI() {
-  const [paragraph, setParagraph] = useState(getRandomParagraph());
+  const location = useLocation();
+  const initialParagraph = location.state && location.state.paragraph ? location.state.paragraph : getRandomParagraph();
+  const [paragraph, setParagraph] = useState(initialParagraph);
   const [time, setTime] = useState(0);
   const [timerOn, setTimerOn] = useState(false);
   const inputRef = useRef(null);
@@ -40,7 +43,9 @@ export default function WordAPI() {
   const buttonHandler = () => {
     setTimerOn(false);
     const inputText = inputRef.current.value;
+    // Pass the paragraph to results for retry
     const stats = getStatistics(inputText, paragraph, time);
+    stats.paragraph = paragraph;
     navigate("/results", { state: { stats } });
   };
 

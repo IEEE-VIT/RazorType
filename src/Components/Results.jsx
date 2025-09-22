@@ -33,10 +33,20 @@ const Results = () => {
           <button
             className="repeat"
             onClick={() => {
+              // Retry same paragraph
+              navigate("/game", { state: { paragraph: location.state.stats.paragraph } });
+            }}
+          >
+            RETRY SAME PARAGRAPH
+          </button>
+          <button
+            className="repeat"
+            onClick={() => {
+              // New random paragraph
               navigate("/game");
             }}
           >
-            REPEAT
+            NEW PARAGRAPH
           </button>
         </div>
       </div>
