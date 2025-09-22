@@ -13,6 +13,7 @@ export default function WordAPI() {
   const [time, setTime] = useState(0);
   const [timerOn, setTimerOn] = useState(false);
   const inputRef = useRef(null);
+  const [liveStats, setLiveStats] = useState({ wpm: 0, accuracy: 100, errors: 0 });
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -49,9 +50,16 @@ export default function WordAPI() {
     navigate("/results", { state: { stats } });
   };
 
-  // Handler to check if user finished typing the paragraph
+  // Handler to check if user finished typing the paragraph and update live stats
   const handleInput = () => {
     const inputText = inputRef.current.value;
+    // Live stats calculation
+    if (timerOn && inputText.length > 0) {
+      const stats = getStatistics(inputText, paragraph, time === 0 ? 1 : time);
+      setLiveStats({ wpm: stats.wpm, accuracy: stats.accuracy, errors: stats.errors });
+    } else if (!inputText.length) {
+      setLiveStats({ wpm: 0, accuracy: 100, errors: 0 });
+    }
     // Remove trailing spaces for comparison
     if (inputText.trimEnd() === paragraph.trimEnd()) {
       setTimerOn(false);
@@ -59,6 +67,22 @@ export default function WordAPI() {
       stats.paragraph = paragraph;
       navigate("/results", { state: { stats } });
     }
+  };
+
+  // Highlight correct/incorrect words
+  const getHighlightedParagraph = () => {
+    const inputText = inputRef.current?.value || "";
+    const inputWords = inputText.split(" ");
+    const paraWords = paragraph.split(" ");
+    return paraWords.map((word, idx) => {
+      let className = "word-default";
+      if (inputWords[idx] !== undefined) {
+        className = inputWords[idx] === word ? "word-correct" : "word-incorrect";
+      }
+      return (
+        <span key={idx} className={className}>{word} </span>
+      );
+    });
   };
 
   return (
@@ -69,17 +93,18 @@ export default function WordAPI() {
         className="word"
       >
         <div className="textHolder">
-          <textarea
-            className="fetchText"
-            placeholder={paragraph}
-            readOnly
-            onFocus={handleStart}
-          />
+          <div className="highlightedParagraph">
+            {getHighlightedParagraph()}
+          </div>
           <textarea
             className="fetchTextOverlay"
             ref={inputRef}
             onInput={handleInput}
+            onFocus={handleStart}
           ></textarea>
+          <div className="liveStats">
+            <span>Speed: {liveStats.wpm} WPM</span> | <span>Accuracy: {liveStats.accuracy}%</span> | <span>Errors: {liveStats.errors}</span>
+          </div>
           <button onClick={buttonHandler} className="accuracy">
             SUBMIT
           </button>

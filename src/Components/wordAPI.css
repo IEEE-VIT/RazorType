@@ -1,3 +1,43 @@
+.highlightedParagraph {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  width: 80vw;
+  min-height: 50vh;
+  margin: 5%;
+  font-size: 4vh;
+  z-index: 1;
+  color: bisque;
+  user-select: none;
+  pointer-events: none;
+  word-break: break-word;
+}
+.word-correct {
+  background-color: #c8e6c9;
+  color: #222;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+.word-incorrect {
+  background-color: #ffcdd2;
+  color: #222;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+.word-default {
+  color: bisque;
+}
+.liveStats {
+  position: absolute;
+  top: 60vh;
+  left: 5vw;
+  font-size: 2.5vh;
+  color: #fff;
+  background: rgba(0,0,0,0.4);
+  padding: 8px 16px;
+  border-radius: 8px;
+  z-index: 2;
+}
 .textHolder {
   position: relative;
 }
@@ -72,7 +112,7 @@ button {
   }
 }
 
-@media only screen and (max: width: 300px) {
+@media only screen and (max-width: 300px) {
   div.fetchText {
     font-size: smaller;
   }
